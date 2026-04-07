@@ -1,19 +1,9 @@
-/* ════════════════════════════════════════════
-        CONFIG — replace with your Apps Script URL
-  ════════════════════════════════════════════ */
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyM3WThrr-P9K_9WqxCssKKgBW3XwLuV4UFt3K13s5J749nGw0iDQMpiinB98nY2K0p/exec';
-  // How to get this URL → read the README.md
 
-/* ════════════════════════════════════════════
-    GENERATE FLOATING DECORATIONS
-  ════════════════════════════════════════════ */
+  /* ════ DECO ════ */
 const layer = document.getElementById('decoLayer');
 
 function ketupatSVG(sz, fill, stroke) {
-    // Use polygon points for a TRUE diamond shape — no rotation tricks
-    // Outer diamond: top(30,2) right(58,30) bottom(30,58) left(2,30)
-    // Inner diamond: top(30,10) right(50,30) bottom(30,50) left(10,30)
-    // Center gem:    top(30,23) right(37,30) bottom(30,37) left(23,30)
     return `<svg width="${sz}" height="${sz}" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
         <polygon points="30,2 58,30 30,58 2,30" fill="${fill}"/>
         <polygon points="30,10 50,30 30,50 10,30" fill="none" stroke="${stroke}" stroke-width="2"/>
@@ -33,7 +23,6 @@ function lemangSVG(sz) {
     </svg>`;
 }
 
-  // Sparkles
 for(let i=0;i<20;i++){
     const s=document.createElement('div');
     s.className='sparkle';
@@ -46,7 +35,6 @@ for(let i=0;i<20;i++){
     layer.appendChild(s);
 }
 
-  // Floating ketupat + lemang
 [
     {t:'k',f:'#2d6a4f',s:'#74c69d',sz:30,x:4, dur:14,del:0},
     {t:'k',f:'#c9922a',s:'#f5e6c8',sz:22,x:16,dur:19,del:3},
@@ -71,30 +59,26 @@ for(let i=0;i<20;i++){
     layer.appendChild(el);
 });
 
-/* ════════════════════════════════════════════
-    LANTERNS
-  ════════════════════════════════════════════ */
+  /* ════ LANTERNS ════ */
 const lanternColors=['#e63946','#e8b84b','#2d6a4f','#e63946','#c9922a','#40916c','#e8b84b','#e63946'];
 const strip=document.getElementById('lanternStrip');
 lanternColors.forEach((c,i)=>{
     strip.innerHTML+=`
     <div class="lantern-wrap" style="animation-delay:${i*.42}s">
-    <div class="lantern-string"></div>
-    <svg width="22" height="36" viewBox="0 0 22 36" xmlns="http://www.w3.org/2000/svg">
-        <ellipse cx="11" cy="18" rx="9" ry="13" fill="${c}" opacity=".92"/>
-        <ellipse cx="11" cy="18" rx="6" ry="9" fill="none" stroke="rgba(255,255,255,.28)" stroke-width="1"/>
-        <rect x="7" y="3" width="8" height="3.5" rx="1.5" fill="rgba(255,255,255,.38)"/>
-        <rect x="7" y="29.5" width="8" height="3.5" rx="1.5" fill="rgba(0,0,0,.18)"/>
-        <line x1="11" y1="33" x2="9"  y2="37" stroke="${c}" stroke-width="1.3" stroke-linecap="round"/>
-        <line x1="11" y1="33" x2="11" y2="38" stroke="${c}" stroke-width="1.3" stroke-linecap="round"/>
-        <line x1="11" y1="33" x2="13" y2="37" stroke="${c}" stroke-width="1.3" stroke-linecap="round"/>
-    </svg>
+        <div class="lantern-string"></div>
+        <svg width="22" height="36" viewBox="0 0 22 36" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="11" cy="18" rx="9" ry="13" fill="${c}" opacity=".92"/>
+            <ellipse cx="11" cy="18" rx="6" ry="9" fill="none" stroke="rgba(255,255,255,.28)" stroke-width="1"/>
+            <rect x="7" y="3" width="8" height="3.5" rx="1.5" fill="rgba(255,255,255,.38)"/>
+            <rect x="7" y="29.5" width="8" height="3.5" rx="1.5" fill="rgba(0,0,0,.18)"/>
+            <line x1="11" y1="33" x2="9"  y2="37" stroke="${c}" stroke-width="1.3" stroke-linecap="round"/>
+            <line x1="11" y1="33" x2="11" y2="38" stroke="${c}" stroke-width="1.3" stroke-linecap="round"/>
+            <line x1="11" y1="33" x2="13" y2="37" stroke="${c}" stroke-width="1.3" stroke-linecap="round"/>
+        </svg>
     </div>`;
 });
 
-/* ════════════════════════════════════════════
-        CONDITIONAL KUMPULAN
-  ════════════════════════════════════════════ */
+  /* ════ CONDITIONAL ════ */
 document.querySelectorAll('input[name="jenis"]').forEach(r=>{
     r.addEventListener('change',()=>{
         const sec=document.getElementById('condKump');
@@ -103,9 +87,7 @@ document.querySelectorAll('input[name="jenis"]').forEach(r=>{
     });
 });
 
-/* ════════════════════════════════════════════
-    TOAST
-  ════════════════════════════════════════════ */
+  /* ════ TOAST ════ */
 function toast(msg){
     document.getElementById('toastMsg').textContent=msg;
     const t=document.getElementById('toast');
@@ -113,9 +95,7 @@ function toast(msg){
     setTimeout(()=>t.classList.remove('show'),3200);
 }
 
-/* ════════════════════════════════════════════
-    VALIDATE
-  ════════════════════════════════════════════ */
+  /* ════ VALIDATE ════ */
 function getFormData(){
     const jenis = document.querySelector('input[name="jenis"]:checked');
     const nama  = document.getElementById('namaFull').value.trim();
@@ -145,9 +125,7 @@ function getFormData(){
     };
 }
 
-/* ════════════════════════════════════════════
-    SUBMIT → GOOGLE SHEETS
-  ════════════════════════════════════════════ */
+  /* ════ SUBMIT ════ */
 async function handleSubmit(){
     const data = getFormData();
     if(!data) return;
@@ -160,14 +138,13 @@ async function handleSubmit(){
     spin.style.display = 'block';
 
     try{
-      // Google Apps Script accepts POST; mode no-cors needed (opaque response is fine)
         await fetch(APPS_SCRIPT_URL, {
             method:'POST',
             mode:'no-cors',
             headers:{'Content-Type':'application/json'},
             body: JSON.stringify(data),
-    });
-        showPopup(data['Nama Penuh'], data['Jenis Penyertaan']);
+        });
+    showPopup(data['Nama Penuh'], data['Jenis Penyertaan']);
     } catch(err){
         toast('Ralat semasa menghantar. Cuba semula.');
         console.error(err);
@@ -178,9 +155,7 @@ async function handleSubmit(){
     }
 }
 
-/* ════════════════════════════════════════════
-    POPUP
-  ════════════════════════════════════════════ */
+  /* ════ POPUP ════ */
 function showPopup(nama, jenis){
     document.getElementById('popupBadge').textContent = nama + ' · ' + jenis;
     document.getElementById('popup').classList.add('show');
@@ -188,7 +163,6 @@ function showPopup(nama, jenis){
 
 function closePopup(){
     document.getElementById('popup').classList.remove('show');
-    // reset
     document.querySelectorAll('input[type="text"],input[type="tel"]').forEach(i=>i.value='');
     document.querySelectorAll('input[type="radio"]').forEach(r=>r.checked=false);
     document.getElementById('condKump').classList.remove('open');
