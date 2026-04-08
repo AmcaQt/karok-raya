@@ -1,3 +1,4 @@
+
         :root {
         --cream:       #fdf6ec;
         --warm-white:  #fffbf4;
@@ -241,8 +242,8 @@
         .tiles.two .tile label { flex-direction:row; justify-content:center; gap:8px; padding:13px; font-size:.9rem; }
 
         /* ── CONDITIONAL ── */
-        .cond { overflow:hidden; max-height:0; opacity:0; transition:max-height .4s, opacity .3s, margin-top .3s; }
-        .cond.open { max-height:220px; opacity:1; margin-top:4px; }
+        .cond { overflow:hidden; max-height:0; opacity:0; transition:max-height .45s ease, opacity .3s, margin-top .3s; }
+        .cond.open { max-height:320px; opacity:1; margin-top:4px; }
 
         /* ── INFO BOX ── */
         .info-box {
@@ -351,114 +352,114 @@
 
         /* ── SUCCESS POPUP ── */
         .popup-overlay {
-            position:fixed; inset:0;
-            background:rgba(27,67,50,.65);
-            backdrop-filter:blur(7px);
-            z-index:1000;
-            display:flex; align-items:center; justify-content:center;
-            opacity:0; pointer-events:none;
-            transition:opacity .3s ease;
-            padding:20px;
+        position:fixed; inset:0;
+        background:rgba(27,67,50,.65);
+        backdrop-filter:blur(7px);
+        z-index:1000;
+        display:flex; align-items:center; justify-content:center;
+        opacity:0; pointer-events:none;
+        transition:opacity .3s ease;
+        padding:20px;
         }
         .popup-overlay.show{ opacity:1; pointer-events:all; }
 
         .popup-box {
-            background:var(--warm-white);
-            border-radius:28px; padding:48px 36px 40px;
-            text-align:center; max-width:400px; width:100%;
-            box-shadow:0 24px 64px rgba(0,0,0,.28);
-            transform:scale(.82) translateY(30px);
-            transition:transform .45s cubic-bezier(.34,1.56,.64,1);
-            position:relative; overflow:hidden;
+        background:var(--warm-white);
+        border-radius:28px; padding:48px 36px 40px;
+        text-align:center; max-width:400px; width:100%;
+        box-shadow:0 24px 64px rgba(0,0,0,.28);
+        transform:scale(.82) translateY(30px);
+        transition:transform .45s cubic-bezier(.34,1.56,.64,1);
+        position:relative; overflow:hidden;
         }
         .popup-overlay.show .popup-box{ transform:scale(1) translateY(0); }
 
         .popup-box::before {
-            content:''; position:absolute; top:-32px; right:-32px;
-            width:115px; height:115px; background:var(--gold-pale);
-            transform:rotate(45deg); border-radius:16px; opacity:.6;
+        content:''; position:absolute; top:-32px; right:-32px;
+        width:115px; height:115px; background:var(--gold-pale);
+        transform:rotate(45deg); border-radius:16px; opacity:.6;
         }
         .popup-box::after {
-            content:''; position:absolute; bottom:-26px; left:-26px;
-            width:95px; height:95px; background:rgba(45,106,79,.08);
-            transform:rotate(45deg); border-radius:12px;
+        content:''; position:absolute; bottom:-26px; left:-26px;
+        width:95px; height:95px; background:rgba(45,106,79,.08);
+        transform:rotate(45deg); border-radius:12px;
         }
 
         .popup-mascot {
-            width:140px; height:140px; margin:0 auto 18px;
-            position:relative; z-index:1;
-            animation:popIn .6s cubic-bezier(.34,1.56,.64,1) both;
-            animation-delay:.12s;
+        width:140px; height:140px; margin:0 auto 18px;
+        position:relative; z-index:1;
+        animation:popIn .6s cubic-bezier(.34,1.56,.64,1) both;
+        animation-delay:.12s;
         }
         @keyframes popIn {
-            from{ transform:scale(0) rotate(-25deg); opacity:0;}
-            to  { transform:scale(1) rotate(0deg);   opacity:1;}
+        from{ transform:scale(0) rotate(-25deg); opacity:0;}
+        to  { transform:scale(1) rotate(0deg);   opacity:1;}
         }
         .popup-overlay.show .popup-mascot {
-            animation: popIn .6s cubic-bezier(.34,1.56,.64,1) both .12s,
-                        wiggle 2.2s ease-in-out .85s infinite;
+        animation: popIn .6s cubic-bezier(.34,1.56,.64,1) both .12s,
+                    wiggle 2.2s ease-in-out .85s infinite;
         }
         @keyframes wiggle {
-            0%,100%{ transform:rotate(0);}
-            25%    { transform:rotate(-9deg);}
-            75%    { transform:rotate(9deg);}
+        0%,100%{ transform:rotate(0);}
+        25%    { transform:rotate(-9deg);}
+        75%    { transform:rotate(9deg);}
         }
 
         .confetti-row{ display:flex; justify-content:center; gap:6px; font-size:1.3rem; margin-bottom:16px; position:relative; z-index:1; }
 
         .popup-box h2 {
-            font-family:'Playfair Display',serif;
-            font-size:1.75rem; color:var(--green-mid);
-            margin-bottom:10px; position:relative; z-index:1;
+        font-family:'Playfair Display',serif;
+        font-size:1.75rem; color:var(--green-mid);
+        margin-bottom:10px; position:relative; z-index:1;
         }
         .popup-badge {
-            display:inline-block; background:var(--gold-pale); color:var(--brown);
-            font-weight:600; padding:4px 16px; border-radius:100px;
-            font-size:.87rem; margin-bottom:12px; position:relative; z-index:1;
+        display:inline-block; background:var(--gold-pale); color:var(--brown);
+        font-weight:600; padding:4px 16px; border-radius:100px;
+        font-size:.87rem; margin-bottom:12px; position:relative; z-index:1;
         }
         .popup-box p {
-            color:var(--text-light); font-size:.9rem; line-height:1.65;
-            margin-bottom:26px; position:relative; z-index:1;
+        color:var(--text-light); font-size:.9rem; line-height:1.65;
+        margin-bottom:26px; position:relative; z-index:1;
         }
 
         .btn-ok {
-            background:linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
-            color:#fff; border:none; border-radius:10px; padding:12px 36px;
-            font-family:'DM Sans',sans-serif; font-size:.95rem; font-weight:600;
-            cursor:pointer; transition:transform .15s, box-shadow .2s;
-            box-shadow:0 4px 16px rgba(201,146,42,.35); position:relative; z-index:1;
+        background:linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+        color:#fff; border:none; border-radius:10px; padding:12px 36px;
+        font-family:'DM Sans',sans-serif; font-size:.95rem; font-weight:600;
+        cursor:pointer; transition:transform .15s, box-shadow .2s;
+        box-shadow:0 4px 16px rgba(201,146,42,.35); position:relative; z-index:1;
         }
         .btn-ok:hover{ transform:translateY(-2px); box-shadow:0 8px 24px rgba(201,146,42,.42); }
 
         /* ── FOOTER ── */
         footer {
-            text-align:center; padding:24px 16px 32px;
-            color:var(--text-light); font-size:.77rem;
-            position:relative; z-index:1;
-            line-height:1.9;
+        text-align:center; padding:24px 16px 32px;
+        color:var(--text-light); font-size:.77rem;
+        position:relative; z-index:1;
+        line-height:1.9;
         }
         footer .footer-dev {
-            font-weight:600; color:var(--brown);
+        font-weight:600; color:var(--brown);
         }
         footer .footer-contact a {
-            color:var(--green-mid); font-weight:600;
-            text-decoration:none;
-            border-bottom:1px solid rgba(45,106,79,.3);
-            padding-bottom:1px;
-            transition:color .2s, border-color .2s;
+        color:var(--green-mid); font-weight:600;
+        text-decoration:none;
+        border-bottom:1px solid rgba(45,106,79,.3);
+        padding-bottom:1px;
+        transition:color .2s, border-color .2s;
         }
         footer .footer-contact a:hover {
-            color:var(--green-bright);
-            border-color:var(--green-bright);
+        color:var(--green-bright);
+        border-color:var(--green-bright);
         }
         footer .footer-sep {
-            margin:0 8px; opacity:.4;
+        margin:0 8px; opacity:.4;
         }
 
         @media(max-width:480px){
-            .card{ padding:24px 18px; }
-            .tiles{ grid-template-columns:1fr; }
-            .tiles.two{ grid-template-columns:repeat(2,1fr); }
-            .popup-box{ padding:40px 22px 32px; }
-            .popup-mascot{ width:110px; height:110px; }
+        .card{ padding:24px 18px; }
+        .tiles{ grid-template-columns:1fr; }
+        .tiles.two{ grid-template-columns:repeat(2,1fr); }
+        .popup-box{ padding:40px 22px 32px; }
+        .popup-mascot{ width:110px; height:110px; }
         }
