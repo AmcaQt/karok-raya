@@ -6,8 +6,8 @@
   <title>Pendaftaran Karaoke Raya</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="assets/styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/styles.css" />
 </head>
 <body>
 
@@ -46,6 +46,19 @@
       Jenis Penyertaan
     </div>
 
+    <!-- Slot Counter -->
+    <div class="slot-bar" id="slotBar">
+      <div class="slot-track"><div class="slot-fill" id="slotFill" style="width:0%"></div></div>
+      <div class="slot-label" id="slotLabel"><span id="slotUsed">...</span> / 10 slot</div>
+    </div>
+
+    <!-- Full Banner -->
+    <div class="full-banner" id="fullBanner">
+      <div class="fb-emoji">🚫</div>
+      <h3>Pendaftaran Telah Ditutup</h3>
+      <p>Maaf, semua <strong>10 slot</strong> telah dipenuhi.<br/>Sila hubungi panitia untuk maklumat lanjut.</p>
+    </div>
+
     <div class="field">
       <label>Pilih kategori penyertaan anda <span class="req">*</span></label>
       <div class="tiles">
@@ -67,7 +80,7 @@
     <div class="cond" id="condKump">
       <div class="field">
         <label for="namaKump">Nama Kumpulan <span class="req">*</span></label>
-        <input type="text" id="namaKump" placeholder="cth: Muja Band On Tops"/>
+        <input type="text" id="namaKump" placeholder="cth: Muja Band On Top"/>
       </div>
     </div>
 
@@ -78,7 +91,7 @@
       </div>
       <div class="field">
         <label for="kelasPasangan">Kelas Partner <span class="req">*</span></label>
-        <input type="text" id="kelasPasangan" placeholder="cth: 2D "/>
+        <input type="text" id="kelasPasangan" placeholder="cth: 2D"/>
       </div>
     </div>
 
@@ -91,7 +104,7 @@
 
     <div class="field">
       <label for="kelas">Kelas <span class="req">*</span></label>
-      <input type="text" id="kelas" placeholder="cth: 2D "/>
+      <input type="text" id="kelas" placeholder="cth: 2D"/>
     </div>
 
     <div class="field">
@@ -101,8 +114,7 @@
 
     <div class="divider">Maklumat Persembahan</div>
 
-    <!-- ── NEW: Persembahan Info Block ── -->
-    <!-- <div class="info-box-green">
+    <div class="info-box-green">
       <div class="ib-title">📋 Panduan Persembahan</div>
       <ul>
         <li>Masa persembahan adalah <strong>3 hingga 5 minit</strong> bagi setiap peserta atau kumpulan.</li>
@@ -111,11 +123,30 @@
         <li>Semua persembahan akan dinilai berdasarkan <strong>vokal, penghayatan, dan penampilan</strong>.</li>
         <li>Sebarang pertanyaan lanjut, sila hubungi panitia melalui butang di bawah.</li>
       </ul>
-    </div> -->
+
+      <div class="winner-disclaimer">
+        <div class="wd-title">&#127942; Hadiah Pemenang</div>
+        <div class="wd-podium">
+          <div class="wd-place gold">
+            <span class="wd-medal">&#129351;</span>
+            <span class="wd-rank">Tempat 1</span>
+          </div>
+          <div class="wd-place silver">
+            <span class="wd-medal">&#129352;</span>
+            <span class="wd-rank">Tempat 2</span>
+          </div>
+          <div class="wd-place bronze">
+            <span class="wd-medal">&#129353;</span>
+            <span class="wd-rank">Tempat 3</span>
+          </div>
+        </div>
+        <p class="wd-note">* Keputusan juri adalah muktamad. Hadiah akan diumumkan selepas majlis.</p>
+      </div>
+    </div>
 
     <div class="field">
       <label for="tajukLagu">Tajuk Lagu <span class="req">*</span></label>
-      <input type="text" id="tajukLagu" placeholder="cth: Kasih Lebaran"/>
+      <input type="text" id="tajukLagu" placeholder="cth: Raya di Hatiku"/>
     </div>
 
     <div class="field">
@@ -137,10 +168,9 @@
       Panitia akan menghubungi anda melalui nombor telefon yang didaftarkan.
     </div>
 
-    <!-- ── NEW: Contact link above submit ── -->
     <div class="contact-row">
-      Ada soalan? Hubungi kami :
-      <a href="https://wa.me/60103539705" target="_blank" rel="noopener">WhatsApp Panitia</a>
+      Ada soalan? Hubungi kami di :
+      <a href="https://wa.me/60103539705" target="_blank" rel="noopener">WhatsApp</a>
     </div>
 
     <button class="btn-submit" id="btnSubmit" onclick="handleSubmit()">
@@ -155,9 +185,7 @@
 <footer>
   <div class="footer-dev">Developed by AmcaQt</div>
   <div class="footer-contact">
-    <a href="/cdn-cgi/l/email-protection#e889858b89999ca88f85898184c68b8785"><span class="__cf_email__" data-cfemail="9efff3fdffefeadef9f3fff7f2b0fdf1f3">[email&#160;protected]</span></a>
-    <span class="footer-sep">·</span>
-    <a href="https://wa.me/60111234567" target="_blank" rel="noopener">WhatsApp</a>
+    <a href="https://wa.me/60103539705" target="_blank" rel="noopener">WhatsApp</a>
   </div>
   <div style="margin-top:6px;">&copy; 2025 Karaoke Raya &mdash; Semua Hak Terpelihara</div>
 </footer>
@@ -165,7 +193,6 @@
 <!-- ─── SUCCESS POPUP ─── -->
 <div class="popup-overlay" id="popup">
   <div class="popup-box">
-
     <div class="popup-mascot">
       <svg viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg">
         <ellipse cx="70" cy="132" rx="30" ry="7" fill="rgba(0,0,0,0.08)"/>
@@ -194,12 +221,10 @@
         <text x="112" y="38" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" font-weight="700" fill="#2c1a0e">Tahniah! 🎉</text>
       </svg>
     </div>
-
     <div class="confetti-row">🎊 🌙 ✨ 🌙 🎊</div>
     <h2>Pendaftaran Berjaya!</h2>
     <div class="popup-badge" id="popupBadge"></div>
-    <p>Terima kasih kerana mendaftar.<br/>Kami akan menghubungi anda tidak lama lagi.<br/>Selamat Hari Raya Aidilfitri! 🌙</p>
-
+    <p>Terima kasih kerana mendaftar.<br/>Kami akan menghubungi anda tidak lama lagi.<br/>Selamat Hari Raya Aidilfitri! �
     <button class="btn-ok" onclick="closePopup()">✅ Tutup</button>
   </div>
 </div>
@@ -207,7 +232,6 @@
 <!-- ─── TOAST ─── -->
 <div class="toast" id="toast">⚠️ <span id="toastMsg"></span></div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
 <script src="assets/script.js"></script>
 </body>
 </html>
