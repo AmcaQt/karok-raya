@@ -71,6 +71,17 @@
       </div>
     </div>
 
+    <div class="cond" id="condDuet">
+      <div class="field">
+        <label for="namaPasangan">Nama Penuh Partner <span class="req">*</span></label>
+        <input type="text" id="namaPasangan" placeholder="cth: Shahiran Abu Sufian"/>
+      </div>
+      <div class="field">
+        <label for="kelasPasangan">Kelas Partner <span class="req">*</span></label>
+        <input type="text" id="kelasPasangan" placeholder="cth: 2D "/>
+      </div>
+    </div>
+
     <div class="divider">Maklumat Peserta</div>
 
     <div class="field">
@@ -80,31 +91,31 @@
 
     <div class="field">
       <label for="kelas">Kelas <span class="req">*</span></label>
-      <input type="text" id="kelas" placeholder="cth: 2D"/>
+      <input type="text" id="kelas" placeholder="cth: 2D "/>
     </div>
 
     <div class="field">
       <label for="telefon">No. Telefon <span class="req">*</span></label>
-      <input type="tel" id="telefon" placeholder="cth: 011-2919 3023"/>
+      <input type="tel" id="telefon" placeholder="cth: 011-1234 5678"/>
     </div>
 
     <div class="divider">Maklumat Persembahan</div>
 
     <!-- ── NEW: Persembahan Info Block ── -->
-    <div class="info-box-green">
+    <!-- <div class="info-box-green">
       <div class="ib-title">📋 Panduan Persembahan</div>
       <ul>
         <li>Masa persembahan adalah <strong>3 hingga 5 minit</strong> bagi setiap peserta atau kumpulan.</li>
-        <li>Lagu yang dipilih hendaklah <strong>bertemakan Raya</strong></li>
-        <!-- <li>Peserta digalakkan membawa <strong>prop atau kostum</strong> Hari Raya untuk menambah keceriaan persembahan.</li> -->
-        <li>Semua persembahan akan dinilai berdasarkan <strong>vokal, penghayatan, dan penampilan</strong></li>
-        <li>Sebarang pertanyaan lanjut, sila hubungi kami melalui butang di bawah.</li>
+        <li>Lagu yang dipilih hendaklah <strong>bertemakan Raya</strong> atau lagu-lagu Melayu yang sesuai.</li>
+        <li>Peserta digalakkan membawa <strong>prop atau kostum</strong> Hari Raya untuk menambah semangat.</li>
+        <li>Semua persembahan akan dinilai berdasarkan <strong>vokal, penghayatan, dan penampilan</strong>.</li>
+        <li>Sebarang pertanyaan lanjut, sila hubungi panitia melalui butang di bawah.</li>
       </ul>
-    </div>
+    </div> -->
 
     <div class="field">
       <label for="tajukLagu">Tajuk Lagu <span class="req">*</span></label>
-      <input type="text" id="tajukLagu" placeholder="cth: Raya di Hatiku"/>
+      <input type="text" id="tajukLagu" placeholder="cth: Kasih Lebaran"/>
     </div>
 
     <div class="field">
@@ -128,7 +139,7 @@
 
     <!-- ── NEW: Contact link above submit ── -->
     <div class="contact-row">
-      Ada soalan? Hubungi kami melalui
+      Ada soalan? Hubungi kami :
       <a href="https://wa.me/60103539705" target="_blank" rel="noopener">WhatsApp Panitia</a>
     </div>
 
@@ -142,7 +153,12 @@
 
 <!-- ─── FOOTER ─── -->
 <footer>
-  <div class="footer-dev">Developed by <a href="https://github.com/AmcaQt">AmcaQt</a></div>
+  <div class="footer-dev">Developed by AmcaQt</div>
+  <div class="footer-contact">
+    <a href="/cdn-cgi/l/email-protection#e889858b89999ca88f85898184c68b8785"><span class="__cf_email__" data-cfemail="9efff3fdffefeadef9f3fff7f2b0fdf1f3">[email&#160;protected]</span></a>
+    <span class="footer-sep">·</span>
+    <a href="https://wa.me/60111234567" target="_blank" rel="noopener">WhatsApp</a>
+  </div>
   <div style="margin-top:6px;">&copy; 2025 Karaoke Raya &mdash; Semua Hak Terpelihara</div>
 </footer>
 
@@ -190,6 +206,8 @@
 
 <!-- ─── TOAST ─── -->
 <div class="toast" id="toast">⚠️ <span id="toastMsg"></span></div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
 <script src="assets/script.js"></script>
 </body>
 </html>
